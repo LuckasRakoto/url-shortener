@@ -7,7 +7,7 @@ const app = express()
 const uri = config.uri
 //console.log(uri)
 
-async function main(){ 
+async function connect(){ 
 
     const client = new MongoClient(uri);
  
@@ -25,5 +25,5 @@ async function main(){
     }
 }
 
-main().catch(console.error);
+connect().catch(console.error);
 // app.get('/',)
