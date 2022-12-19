@@ -1,6 +1,29 @@
+const config = require('./constants')
 const express = require('express')
 var mysql = require('mysql')
-const mongoose = require('mongoose')
+const {MongoClient} = require('mongodb');
 const app = express()
 
-app.get('/',)
+const uri = config.uri
+//console.log(uri)
+
+async function main(){ 
+
+    const client = new MongoClient(uri);
+ 
+    try {
+        // Connect to the MongoDB cluster
+        await client.connect();
+ 
+        // Make the appropriate DB calls
+        
+ 
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+main().catch(console.error);
+// app.get('/',)
