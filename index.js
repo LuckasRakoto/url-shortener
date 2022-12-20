@@ -1,4 +1,4 @@
-const config = require('./constants')
+const config = require('./config')
 const express = require('express')
 var mysql = require('mysql')
 const {MongoClient} = require('mongodb');
