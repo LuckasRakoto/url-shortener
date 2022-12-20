@@ -1,5 +1,5 @@
 function generateURL() {
-    let shortURL = "http://shorted.net/" + makeid(6)
+    let shortURL = "https://shorted.net/" + makeid(6)
     return shortURL 
 }
 
@@ -18,5 +18,7 @@ function makeid(length) {
 }
 
 function test(){
-    console.log([getURL(),generateURL()])
+    shortURL = generateURL()
+    console.log([getURL(),shortURL])
+    window.alert(shortURL)
 }
