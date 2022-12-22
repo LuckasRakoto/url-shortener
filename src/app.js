@@ -21,4 +21,5 @@ function test(){
     shortURL = generateURL()
     console.log([getURL(),shortURL])
     window.alert(shortURL)
+    return [getURL(),shortURL]
 }
