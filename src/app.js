@@ -17,9 +17,10 @@ function makeid(length) {
     return result;
 }
 
-function test(){
+export function getLong(){
     shortURL = generateURL()
     console.log([getURL(),shortURL])
     window.alert(shortURL)
     return [getURL(),shortURL]
 }
+

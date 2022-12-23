@@ -1,4 +1,5 @@
 const config = require('./config')
+import { getLong } from './src/app';
 //const express = require('express')
 const {MongoClient} = require('mongodb');
 //const app = express()
@@ -18,20 +19,22 @@ async function connect(){
         const collection = client.db("urlshortener").collection("urls")
         console.log("Connected successfully to culster");
 
-        await sendtodb(collection,"https://Rakoto.com","https://github.com/LuckasRakoto")
-
-        
-        client.close()
+        return collection
  
     } catch (e) {
         console.error(e);
     }
 }
 
-
-
-connect().catch(console.error);
+async function goShorten(){
+    urls = getLong()
+    collection = await connect().catch(console.error)
+    await sendtodb(collection, urls[0], urls[1])
+}
+urls = getLong()
 // app.get('/',)
+
+
 
 async function sendtodb(collection, shorturl, longurl) {
     const doc = {"long": longurl, "short": shorturl};
