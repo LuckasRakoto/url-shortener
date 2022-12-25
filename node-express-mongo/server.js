@@ -4,6 +4,8 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const path = require('path')
 
+const urlRouter = require('./routes/urlRouter')
+
 const hostname = 'localhost'
 const port = 3000
 
@@ -16,6 +18,8 @@ app.use((req,res,next) =>{
     res.setHeader('Content-Type','text/html')
     res.sendFile(path.join(__dirname,'../src','index.html'))
 })
+
+app.use('/urls',urlRouter)
 
 const server = http.createServer(app)
 
