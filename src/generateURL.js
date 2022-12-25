@@ -1,5 +1,7 @@
+import {goShorten} from "../index.js"
+
 function generateURL() {
-    let shortURL = "https://shorted.net/" + makeid(6)
+    let shortURL = "http://localhost:3000/urls/" + makeid(6)
     return shortURL 
 }
 
@@ -17,10 +19,10 @@ function makeid(length) {
     return result;
 }
 
-export function getLong(){
+function getLong(){
     shortURL = generateURL()
-    console.log([getURL(),shortURL])
+    urls = [getURL(),shortURL]
+    console.log(urls)
     window.alert(shortURL)
-    return [getURL(),shortURL]
 }
 
