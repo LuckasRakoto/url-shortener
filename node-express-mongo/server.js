@@ -13,13 +13,15 @@ const app = express()
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 
+app.use('/urls',urlRouter)
+
 app.use((req,res,next) =>{
     res.statusCode = 200
     res.setHeader('Content-Type','text/html')
     res.sendFile(path.join(__dirname,'../src','index.html'))
 })
 
-app.use('/urls',urlRouter)
+
 
 const server = http.createServer(app)
 

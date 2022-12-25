@@ -4,7 +4,7 @@ const express = require('express')
 urlRouter = express.Router()
 
 urlRouter.use(bodyParser.json())
-
+    
 urlRouter.route('/')
 .all((req,res,next)=>{
     res.statusCode = 200
@@ -15,7 +15,7 @@ urlRouter.route('/')
     res.end('Will send you all the urls to you !')
 })
 .post((req,res)=>{
-    res.end('Will add the dish: '+ req.body.name + ' with the description: '+ req.body.description)
+    res.end('Will add the shortened url: '+ req.body.name + ' with the description: '+ req.body.url)
 })
 .put((req,res)=>{
     res.statusCode = 403
