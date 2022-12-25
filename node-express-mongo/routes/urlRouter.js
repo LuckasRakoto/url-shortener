@@ -42,4 +42,4 @@ urlRouter.route("/:urlId")
     res.end(`Will delete the url: ${req.body.name}`)
 })
 
-module.exports = prompRouter
+module.exports = urlRouter
