@@ -1,9 +1,10 @@
 const bodyParser = require('body-parser')
 const express = require('express')
 
-urlRouter = express.Router()
+const urlRouter = express.Router()
 
 urlRouter.use(bodyParser.json())
+urlRouter.use(bodyParser.urlencoded({ extended : true }))
     
 urlRouter.route('/')
 .all((req,res,next)=>{
@@ -11,17 +12,17 @@ urlRouter.route('/')
     res.setHeader('Content-Type','text/plain')
     next()
 })
-.get((req,res)=>{
+.get((req,res,next)=>{
     res.end('Will send you all the urls to you !')
 })
-.post((req,res)=>{
+.post((req,res,next)=>{
     res.end('Will add the shortened url: '+ req.body.name + ' with the description: '+ req.body.url)
 })
-.put((req,res)=>{
+.put((req,res,next)=>{
     res.statusCode = 403
     res.end('PUT operations not supported on /urls')
 })
-.delete((req,res)=>{
+.delete((req,res,next)=>{
     res.end('Deleting all the urls !')
 })
 

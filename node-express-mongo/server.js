@@ -13,7 +13,7 @@ const app = express()
 app.use(morgan('dev'))
 app.use(bodyParser.json())
 
-app.use('/urls',urlRouter)
+app.use('/urls', urlRouter)
 
 app.use((req,res,next) =>{
     res.statusCode = 200
