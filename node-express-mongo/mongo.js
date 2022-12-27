@@ -25,17 +25,16 @@ async function connect(){
     }
 }
 
-export async function goShorten(urls){
+async function goShorten(urls){
     collection = await connect().catch(console.error)
-    await sendtodb(collection, urls[0], urls[1])
+    await sendtodb(collection, urls)
 }
 
 // app.get('/',)
 
 
 
-async function sendtodb(collection, shorturl, longurl) {
-    const doc = {"long": longurl, "short": shorturl};
+async function sendtodb(collection, doc) {
     const result = await collection.insertOne(doc)
     console.log(
         `A document was inserted with the _id: ${result.insertedId}`,

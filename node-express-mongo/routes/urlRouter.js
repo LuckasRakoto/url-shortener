@@ -1,3 +1,5 @@
+const mongo = require('../mongo')
+
 const bodyParser = require('body-parser')
 const express = require('express')
 
@@ -16,6 +18,7 @@ urlRouter.route('/')
     res.end('Will send you all the urls to you !')
 })
 .post((req,res,next)=>{
+    mongo.goShorten(req.body)
     res.end('Will add the shortened url: '+ req.body.name + ' with the description: '+ req.body.url)
 })
 .put((req,res,next)=>{
@@ -28,14 +31,14 @@ urlRouter.route('/')
 
 urlRouter.route("/:urlId")
 .get((req,res,next) =>{
-    res.end('Will send details of the url: ' + req.params.prompId + ' to you !')
+    res.end('Will send details of the url: ' + req.params.urlId + ' to you !')
 })
 .post((req,res,next)=>{
     res.status=403
-    res.end('POST operation not supported on /urls/' + req.params.prompId)
+    res.end('POST operation not supported on /urls/' + req.params.urlId)
 })
 .put((req,res,next)=>{
-    res.write('Updating the url: ' + req.params.prompId + '\n')
+    res.write('Updating the url: ' + req.params.urlId + '\n')
     res.end(`Will update the dish: ${req.body.name} with details: ${req.body.description}`)
 })
 

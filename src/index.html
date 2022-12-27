@@ -8,8 +8,8 @@
 <body>
     <h1 id="intro">Enter your link and we will shorten it for you ! :) </h1>
     <label id="label1" for="longurl">URL to shorten:</label><br>
-    <input type="url" id="longurl" name="longurl" placeholder="https://example.com" required><br>
-    <button id="convertButton">Convert</button>
+    <input type="url" required id="longurl" placeholder="https://example.com" pattern="https://.*"  required><br>
+    <button id="convertButton" type="submit">Convert</button>
 </body>
-<script src="./index.js"></script>
+<script src="./index.js" type="module"></script>
 </html>
