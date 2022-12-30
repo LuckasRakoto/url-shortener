@@ -4,7 +4,6 @@ const express = require('express')
 
 const urlRouter = express.Router()
 
-client = mongo.connect()
 urlRouter.use(bodyParser.json())
 urlRouter.use(bodyParser.urlencoded({ extended : true }))
     
@@ -18,15 +17,7 @@ urlRouter.route('/')
     res.end('Will send you all the urls to you !')
 })
 .post((req,res,next)=>{
-    client.db("urlshortener").collection('urls').insertOne(req.body, (err, result) => {
-        if (err) {
-            return console.log(err)
-        }
-        res.sendStatus(201)
-        res.redirect('/')
-        res.end('Will add the shortened url: '+ req.body.name + ' with the description: '+ req.body.url)
-    })
-    
+    mongo.connectAndSend(req.body)
 })
 .put((req,res,next)=>{
     res.statusCode = 403

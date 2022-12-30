@@ -8,9 +8,10 @@ const button = document.getElementById('convertButton');
 
 button.addEventListener('click', function(e) {
   const URLS = [getURL(),generateURL()]
-  console.log(`the button was clicked`);
+  console.log(`the button was clicked`, URLS);
   const data = {name: URLS[0], url: URLS[1]}
-  fetch("/urls",{ method: 'POST', body: JSON.stringify(data)})
+  console.log(data)
+  postData("http://localhost:3000/urls/",data)
 });
 
 
@@ -30,4 +31,14 @@ function makeid(length) {
   return result;
 }
 
+async function postData(url,data={}){
+  const response = await fetch(url, {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data) 
+  });
+  return response.json(); // 
+}
 

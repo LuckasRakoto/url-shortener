@@ -19,7 +19,15 @@ async function connect(){
     }
 }
 
+async function connectAndSend(url){
+    client = await connect()
+    client.db("urlshortener").collection('urls').insertOne(url, (err, result) => {
+        if (err) {
+            return console.log(err)
+         }
+     })
+}
 
 module.exports = {
-    connect: connect
+    connectAndSend: connectAndSend
 }
