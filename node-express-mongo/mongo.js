@@ -1,5 +1,6 @@
 const config = require('./config')
 const {MongoClient} = require('mongodb');
+const { query } = require('express');
 
 const uri = config.uri
 
@@ -20,14 +21,29 @@ async function connect(){
 }
 
 async function connectAndSend(url){
-    client = await connect()
-    client.db("urlshortener").collection('urls').insertOne(url, (err, result) => {
+    client = await connect().catch(console.error)
+    await client.db("urlshortener").collection('urls').insertOne(url, (err, result) => {
         if (err) {
             return console.log(err)
          }
      })
 }
 
+async function findOGLink(shortURL){
+    client = await connect()
+    const query = {url: shortURL}
+    console.log(query)
+    doc = await client.db("urlshortener").collection('urls').findOne(query,(err, results) => {
+        if (err) {
+            return console.log(`error: ${err}`)
+        }
+    })
+    console.log(doc)
+    return doc
+}
+
+
 module.exports = {
-    connectAndSend: connectAndSend
+    connectAndSend: connectAndSend,
+    findOGLink: findOGLink
 }

@@ -15,7 +15,6 @@ button.addEventListener('click', function(e) {
 });
 
 
-
 function generateURL() {
   let shortURL = "http://localhost:3000/urls/" + makeid(6)
   return shortURL 
