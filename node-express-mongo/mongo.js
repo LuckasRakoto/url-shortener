@@ -32,14 +32,9 @@ async function connectAndSend(url){
 async function findOGLink(shortURL){
     client = await connect()
     const query = {url: shortURL}
-    console.log(query)
-    doc = await client.db("urlshortener").collection('urls').findOne(query,(err, results) => {
-        if (err) {
-            return console.log(`error: ${err}`)
-        }
-    })
-    console.log(doc)
-    return doc
+    const doc = await client.db("urlshortener").collection("urls" ).findOne(query)
+    console.log(doc.name)
+    return doc.name
 }
 
 

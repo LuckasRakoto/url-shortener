@@ -30,8 +30,8 @@ urlRouter.route('/')
 
 urlRouter.route("/:urlId")
 .get((req,res,next) =>{
-    mongo.findOGLink("http://localhost:3000/:" + req.params.urlId)
-    res.end('Will send details of the url: ' + req.params.urlId + ' to you !')
+    link = mongo.findOGLink("http://localhost:3000/urls/" + req.params.urlId)
+    res.end('Will send details of the url: ' + req.params.urlId + ' to you ! with the url: '+ link)
 })
 .post((req,res,next)=>{
     res.status=403
