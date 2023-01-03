@@ -12,6 +12,7 @@ button.addEventListener('click', function(e) {
   console.log(`the button was clicked`, URLS);
   const data = {name: URLS[0], url: URLS[1]}
   linkText.innerHTML = URLS[1]
+  document.getElementById("longurl").value = ""
   postData("http://localhost:3000/urls/",data)
 });
 
