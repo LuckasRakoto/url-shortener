@@ -4,13 +4,14 @@ function getURL() {
   return document.getElementById("longurl").value
 }
 
-const button = document.getElementById('convertButton');
+const button = document.getElementById('convertButton')
+const linkText = document.getElementById("shortenedLink")
 
 button.addEventListener('click', function(e) {
   const URLS = [getURL(),generateURL()]
   console.log(`the button was clicked`, URLS);
   const data = {name: URLS[0], url: URLS[1]}
-  console.log(data)
+  linkText.innerHTML = URLS[1]
   postData("http://localhost:3000/urls/",data)
 });
 

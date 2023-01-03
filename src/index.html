@@ -2,14 +2,33 @@
 <html>
 <head>
     <title>Shorten Url</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <link href="./dist/output.css" rel="stylesheet">
 </head>
-<body>
-    <h1 id="intro">Enter your link and we will shorten it for you ! :) </h1>
-    <label id="label1" for="longurl">URL to shorten:</label><br>
-    <input type="url" required id="longurl" placeholder="https://example.com" pattern="https://.*"  required><br>
-    <button id="convertButton" type="submit">Convert</button>
+<body class="bg-slate-500">
+    <h1 class="flex-1 w-full px-1 font-bold text-center text-4xl pt-8 pb-8">Localhost:3000</h1>
+    <div class="px-20">
+        <p id="intro" class="text-lg text-center pb-14" >Enter your link and we will shorten it for you ! :) </p>
+        <div class="flex space-x-32 pr-40 pb-10">
+            <p class="flex-1 text-sm ml-20 w-96 p-16 bg-slate-400 rounded-full text-center">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras sagittis velit tellus, in tempus ligula luctus vitae. Duis bibendum consectetur urna, eu efficitur tortor dignissim eget. Ut porta nisi ex, ut finibus enim luctus in. Nunc felis risus, convallis nec ullamcorper ac, faucibus et nibh. Vivamus sodales dolor vitae sem efficitur, a finibus magna porta. Donec non feugiat nisi. Nunc eu iaculis nulla. Donec hendrerit nibh ex, in lobortis ipsum dignissim in. Vivamus tempus eleifend molestie. Phasellus porta nec odio at congue. Sed iaculis, velit cursus ultricies vehicula, nulla purus viverra lacus, sit amet lobortis augue odio id dolor. Etiam non vulputate lacus."</p>
+            <div class="flex flex-1 flex-col bg-slate-700 text-white rounded-lg">
+                <p class="text-xl p-7">Why us?</p>
+                <li class="text-lg pl-7">Lignting fast APIs</li>
+                <li class="text-lg pl-7">Rock solid top of the notch databases</li>
+                <li class="text-lg pl-7">Years of experience</li>
+                <li class="text-lg pl-7">Unmatched customer service</li>
+            </div>
+        </div>
+
+        <div class="flex text-center space-x-10">
+            <label id="label1" for="longurl" class="text-2xl flex-1" >URL you want to shorten:</label>
+            <input class="pl-2 flex-1" type="url" required id="longurl" placeholder="https://example.com"  required>
+            <button id="convertButton" type="submit" class="border-stone-600 border-2 bg-stone-600 p-3 rounded-lg flex-1  hover:bg-stone-700  hover:border-stone-700" >Convert</button>
+        </div><br>
+        <p id="shortenedLink" class=" text-gray-800 text-4xl" ></p>
+        
+    </div>
 </body>
-<script src="./index.js" type="module"></script>
+<script src="./index.js"></script>
 </html>
